@@ -270,16 +270,8 @@ User Input → FlightSearchComponent → FlightService → Backend API
 **Database Integration**
 - Migrate to PostgreSQL with flight schedule tables
 - Add indexes on origin, destination, departure date
-- Enable real-time data updates without restart
 - Support pagination for large result sets
 - **Impact**: Production-ready data persistence
-
-**Search Algorithm Optimization**
-- Implement A* pathfinding for faster connection discovery
-- Add parallel processing for multi-stop searches
-- Index flights by airport for O(1) lookup
-- Implement early termination when enough results found
-- **Impact**: 2-5x faster search for complex queries
 
 **Advanced Features**
 - Price filtering (min/max price)
@@ -289,14 +281,6 @@ User Input → FlightSearchComponent → FlightService → Backend API
 - Multi-city search
 - Return flight search
 - **Impact**: Better user experience, more useful results
-
-**Monitoring & Observability**
-- Add Spring Boot Actuator for health checks
-- Implement structured logging (JSON logs)
-- Add metrics with Micrometer/Prometheus
-- Distributed tracing with OpenTelemetry
-- Performance monitoring with APM tools
-- **Impact**: Production readiness, easier debugging
 
 **API Enhancements**
 - Add pagination (limit, offset)
@@ -309,13 +293,11 @@ User Input → FlightSearchComponent → FlightService → Backend API
 ### 2. Frontend Improvements
 
 **User Experience**
-- Add autocomplete for airport codes
 - Show airport names, not just codes
 - Add date picker with calendar UI
 - Display airline logos (not just placeholder icons)
 - Add loading skeletons instead of "Searching..."
 - Show search history (recent searches)
-- Add "Book Now" button with external links
 - **Impact**: Significantly better UX
 
 **Advanced Filtering**
@@ -341,51 +323,7 @@ User Input → FlightSearchComponent → FlightService → Backend API
 - Visual regression testing
 - **Impact**: Confidence in deployments, fewer bugs
 
-### 3. DevOps & Infrastructure
-
-**CI/CD Pipeline**
-- GitHub Actions or GitLab CI
-- Automated testing on every commit
-- Automated Docker builds
-- Deploy to staging on merge to main
-- Deploy to production on release tag
-- **Impact**: Faster, safer deployments
-
-**Security**
-- Add HTTPS/TLS certificates
-- Implement rate limiting
-- Add request validation and sanitization
-- Security headers (CSP, HSTS, etc.)
-- Dependency vulnerability scanning
-- Container image scanning
-- **Impact**: Secure production application
-
-**Observability**
-- Centralized logging (ELK stack)
-- Metrics dashboard (Grafana)
-- Alerting (PagerDuty, OpsGenie)
-- Error tracking (Sentry)
-- **Impact**: Proactive issue detection
-
-### 4. Data Quality
-
-**Flight Data Enhancements**
-- Real flight schedule data from APIs (Amadeus, Skyscanner)
-- Include airport metadata (city, country, timezone)
-- Add airline information (name, logo URL)
-- Include aircraft types with seat maps
-- Add baggage allowance info
-- Include fare classes and restrictions
-- **Impact**: Real-world usefulness
-
-**Data Validation**
-- Validate flight times are chronological
-- Ensure layover times are realistic (>30min, <24hr)
-- Check for duplicate flight numbers
-- Validate airport codes exist
-- **Impact**: Higher data quality
-
-### 5. Additional Features
+### 3. Additional Features
 
 **User Accounts**
 - User registration and authentication (JWT)
@@ -399,8 +337,3 @@ User Input → FlightSearchComponent → FlightService → Backend API
 - Support multiple currencies
 - Localized date/time formats
 - **Impact**: Global accessibility
-
-## Summary
-
-The architecture prioritizes simplicity and developer productivity for an MVP while remaining extensible for future enhancements. The chosen technologies (Spring Boot + Angular) provide a solid foundation that can scale to production workloads with the improvements outlined above.
-
