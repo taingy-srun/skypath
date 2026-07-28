@@ -40,19 +40,6 @@ The application will be available at:
 docker-compose down
 ```
 
-### View Logs
-
-```bash
-# View all logs
-docker-compose logs -f
-
-# View backend logs only
-docker-compose logs -f backend
-
-# View frontend logs only
-docker-compose logs -f frontend
-```
-
 ## Running Locally (Development)
 
 ### Backend
