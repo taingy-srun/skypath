@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: skypath-backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./flights.json:/app/flights.json:ro
+    networks:
+      - skypath-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: skypath-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - skypath-network
+
+networks:
+  skypath-network:
+    driver: bridge
